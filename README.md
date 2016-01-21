@@ -2,7 +2,7 @@
 
 - Sample server: 133.130.101.114
 - Database: postgreSQL
-- Request format: http://<SERVER>/api/v1/recommendations/<USER_ID>/<STRATEGY_NAME>
+- Request format: `http://<SERVER>/api/v1/recommendations/<USER_ID>/<STRATEGY_NAME>`
 - Response format: `[{item_id, categories:[ids], ..., {}]`
     - http://133.130.101.114:3000/api/v1/recommendations/35688/category
         - user_id: 35688
