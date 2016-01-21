@@ -13,7 +13,6 @@
 
 # Introduction(What I've done)
 
-
 - import sample data function (parse csv and import it to DB) (.//lib/tasks/prepare_data.rake)
     - design pattern: Template method, Factory method
     - comment: it seems the requirement ask me to create a custom object to handler the recommendation function, so, I am used to putting custom object here
@@ -28,7 +27,7 @@ The `sharding`, `1 master Many slaves model`, `cache` methodoligies came into my
 
 For the `similar categories` recommendation strategy, I think we could use `cache` to accelerate. Because, the `categories` supposed not to increase in a millions scale. We can easily use Redis or some memory cache techniques to accelerate the most common queries.
 
-About the database infrastructure design, I tend to use `sharding` for this case. 
+About the database infrastructure design, I tend to use `sharding` for this case. By the way, `sharing` is more easier in MongoDB compared to `PostgreSQL`, which is natively support it.
 
 All the queries are coming with `user_id`
 
