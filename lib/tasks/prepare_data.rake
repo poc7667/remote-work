@@ -14,7 +14,14 @@ namespace :prepare_data do
     csv = CSV.parse(csv_hdlr, :headers => true)
     csv.each_with_index do |row, i|
         toks = row[0].split
+        user_id = toks[0].to_i
+        name = toks[1..-1].join(" ")
+        begin
+          user = User.create(id: user_id, name: name)
+        rescue ActiveRecord::RecordNotUnique
+          print("#{user_id} has already existed")
+        end
+        print(user)
     end
-    print DATASTORE
   end
 end
