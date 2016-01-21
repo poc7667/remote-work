@@ -37,17 +37,10 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
-    bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-social-rails (4.8.0)
-      railties (>= 3.1)
-    bson (3.2.6)
     builder (3.2.2)
     byebug (8.2.1)
-    chartjs-ror (2.2.0)
-      rails (>= 3.1)
-    choice (0.2.0)
     chronic (0.10.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -62,16 +55,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
-    connection_pool (2.2.0)
-    dalli (2.7.5)
     debug_inspector (0.0.2)
-    devise (3.5.1)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      responders
-      thread_safe (~> 0.1)
-      warden (~> 1.2.3)
     diff-lcs (1.2.5)
     dotenv (2.1.0)
     dotenv-rails (2.1.0)
@@ -87,8 +71,6 @@ GEM
     execjs (2.6.0)
     faker (1.6.1)
       i18n (~> 0.5)
-    faraday (0.9.2)
-      multipart-post (>= 1.2, < 3)
     ffi (1.9.10)
     foreman (0.78.0)
       thor (~> 0.19.1)
@@ -116,7 +98,6 @@ GEM
       rspec (>= 2.99.0, < 4.0)
     haml (4.0.7)
       tilt
-    hashie (3.4.3)
     html2haml (2.0.0)
       erubis (~> 2.7.0)
       haml (~> 4.0.0)
@@ -133,7 +114,6 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
-    jwt (1.5.2)
     listen (3.0.5)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -147,18 +127,7 @@ GEM
     mimemagic (0.3.0)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
-    mongoid (4.0.2)
-      activemodel (~> 4.0)
-      moped (~> 2.0.0)
-      origin (~> 2.1)
-      tzinfo (>= 0.3.37)
-    moped (2.0.7)
-      bson (~> 3.0)
-      connection_pool (~> 2.0)
-      optionable (~> 0.2.0)
     multi_json (1.11.2)
-    multi_xml (0.5.5)
-    multipart-post (2.0.0)
     nenv (0.2.0)
     newrelic_rpm (3.14.1.311)
     nokogiri (1.6.7.2)
@@ -166,23 +135,6 @@ GEM
     notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    oauth2 (1.0.0)
-      faraday (>= 0.8, < 0.10)
-      jwt (~> 1.0)
-      multi_json (~> 1.3)
-      multi_xml (~> 0.5)
-      rack (~> 1.2)
-    omniauth (1.2.2)
-      hashie (>= 1.2, < 4)
-      rack (~> 1.0)
-    omniauth-facebook (2.0.1)
-      omniauth-oauth2 (~> 1.2)
-    omniauth-oauth2 (1.3.1)
-      oauth2 (~> 1.0)
-      omniauth (~> 1.2)
-    optionable (0.2.0)
-    origin (2.1.1)
-    orm_adapter (0.5.0)
     paperclip (4.3.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -222,11 +174,6 @@ GEM
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
-    rails-erd (1.4.5)
-      activerecord (>= 3.2)
-      activesupport (>= 3.2)
-      choice (~> 0.2.0)
-      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
     railties (4.2.3)
@@ -240,8 +187,6 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.2.1)
       json (~> 1.4)
-    responders (2.1.1)
-      railties (>= 4.2.0, < 5.1)
     route_translator (4.2.3)
       actionpack (>= 3.2, < 5.0)
       activesupport (>= 3.2, < 5.0)
@@ -267,7 +212,6 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
-    ruby-graphviz (1.2.2)
     ruby_parser (3.7.2)
       sexp_processor (~> 4.1)
     sass (3.4.21)
@@ -302,9 +246,6 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    useragent (0.16.3)
-    warden (1.2.4)
-      rack (>= 1.0)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -319,12 +260,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-social-rails
   byebug
-  chartjs-ror
   coffee-rails (~> 4.1.0)
-  dalli
-  devise (= 3.5.1)
   dotenv-rails
   erb2haml
   faker
@@ -333,11 +270,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
-  mongoid (= 4.0.2)
   newrelic_rpm
-  omniauth (= 1.2.2)
-  omniauth-facebook (= 2.0.1)
-  omniauth-oauth2 (= 1.3.1)
   paperclip (~> 4.1)
   pry
   pry-byebug
@@ -345,7 +278,6 @@ DEPENDENCIES
   puma
   quiet_assets
   rails (= 4.2.3)
-  rails-erd
   route_translator
   rspec-deep-ignore-order-matcher
   rspec-rails
@@ -355,7 +287,6 @@ DEPENDENCIES
   sqlite3
   turbolinks
   uglifier (>= 1.3.0)
-  useragent
   web-console (~> 2.0)
   whenever
   zeus

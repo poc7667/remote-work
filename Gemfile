@@ -54,26 +54,13 @@ group :development do
   gem 'faker'
   gem 'erb2haml' #rake haml:replace_erbs
   gem 'quiet_assets'
-  # gem 'xray-rails'
-  # gem 'rack-mini-profiler'
   gem 'zeus'
 end
+
 gem 'paperclip', '~> 4.1'
 gem 'puma'
 gem 'whenever', require: false
 gem 'dotenv-rails'
-gem 'rails-erd'
-gem 'mongoid','4.0.2'
-gem 'devise', '3.5.1'
-gem 'omniauth', '1.2.2'
-gem 'omniauth-oauth2', '1.3.1'
-gem 'omniauth-facebook', '2.0.1'
-gem 'chartjs-ror' #, :git => 'https://github.com/poc7667/chartjs-ror.git'
-#gem 'chartjs-ror', :path => '/Users/hsu-wei-cheng/workspace/lazy-bird-website/vendor/chartjs-ror'
-gem 'useragent'
-gem 'bootstrap-social-rails'
-gem "dalli"
-# Multithreading and Rails for dalli
 gem 'newrelic_rpm'
 gem 'foreman'
 gem 'route_translator'
