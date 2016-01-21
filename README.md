@@ -1,3 +1,18 @@
+# prepare data
+## DB setup
+- rake db:create # make sure the postgreSQL is ready.
+- rake db:migrate
+
+## Import Sample Data
+
+    rake prepare_data:user
+    rake prepare_data:category
+    rake prepare_data:item_and_associations
+    rake prepare_data:associations_user_and_items
+
+
+
+
 RS Mini Project: Recommenders
 
 Notes:
