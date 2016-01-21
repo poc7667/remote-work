@@ -97,6 +97,8 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    habtm_generator (0.5)
+      activerecord
     haml (4.0.7)
       tilt
     hirb (0.7.3)
@@ -275,6 +277,7 @@ DEPENDENCIES
   foreman
   guard-livereload
   guard-rspec
+  habtm_generator
   hirb-unicode
   jbuilder (~> 2.0)
   jquery-rails
