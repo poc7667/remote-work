@@ -55,6 +55,7 @@ The recommender should recommend
 ## DB setup
 - rake db:create # make sure the postgreSQL is ready.
 - rake db:migrate
+- RAILS_ENV=test rake db:create
 
 ## Import Sample Data
 
@@ -70,3 +71,17 @@ The recommender should recommend
     #Recommender.get_recommendations(<USER_ID>, <STRATEGY_NAME>)
     Recommender.get_recommendations(35688, "category")
     Recommender.get_recommendations(35688, "user")
+
+# RSPEC
+
+rspec spec/requests/api/v1/recommendations_spec.rb
+
+![inline](https://i.imgur.com/0hbRM2E.png =300x "Title")
+
+# WEB API USAGE
+
+http://133.130.101.114:3000/api/v1/recommendations/35688/category
+http://133.130.101.114:3000/api/v1/recommendations/35688/users
+
+http://localhost:3000/api/v1/recommendations/35688/category
+http://localhost:3000/api/v1/recommendations/35688/user
