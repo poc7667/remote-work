@@ -1,17 +1,4 @@
-# prepare data
-## DB setup
-- rake db:create # make sure the postgreSQL is ready.
-- rake db:migrate
-
-## Import Sample Data
-
-    rake prepare_data:user
-    rake prepare_data:category
-    rake prepare_data:item_and_associations
-    rake prepare_data:associations_user_and_items
-
-
-
+# Requirements
 
 RS Mini Project: Recommenders
 
@@ -30,14 +17,35 @@ Do pay attention to organization, formatting, syntax, code quality. This should 
 Design the code so that in the future it is easy to add additional recommender strategies
 Use good OOP Principles and design patterns where relevant
 Think about scale. What if there are millions of users and millions of orders?
-Recommendation Class 1: Category Recommender Based on the purchased items, recommend items that most closely related based on the category similarity. Must have at least 1 category in common. Must not have already been purchased by the user.
+
+# Recommendation Class 1: 
+
+Category Recommender Based on the purchased items, recommend items that most closely related based on the category similarity. Must have at least 1 category in common. Must not have already been purchased by the user.
 
 Example: Item 1 is "Nike Dunks" with categories "Shoes", "Basketball", and "Nike" Item 2 is "Nike Street Basketball" with categories "Balls", "Basketball" and "Nike" Item 3 is "Addidas Jersey" with categories "Clothing", "Basketball", and "Addidas" Item 4 is "Golf bag" with categories "Golf", "Accessories"
 
 If user purchased item1, then they should be recommended item 2, item 3
 
-Recommendation Class 2: Similar Users Recommend items that other users with similar purchases have ordered.
+# Recommendation Class 2: 
+
+Similar Users Recommend items that other users with similar purchases have ordered.
 
 Example: John Doe ordered "Nike Dunks" Jane Doe ordered "Nike Dunks" and "Nike Street Basketball" Jim Doe ordered "Nike Street Basketball" and "Golf bag"
 
 The recommender should recommend "Nike Street Basketball" for John Doe, "Golf bag" for Jane Doe, and "Nike Dunks" for Jim Doe
+
+# Prepare data
+## DB setup
+- rake db:create # make sure the postgreSQL is ready.
+- rake db:migrate
+
+## Import Sample Data
+
+    rake prepare_data:user
+    rake prepare_data:category
+    rake prepare_data:item_and_associations
+    rake prepare_data:associations_user_and_items
+
+
+
+
