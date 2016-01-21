@@ -8,20 +8,45 @@ namespace :prepare_data do
     [DATASTORE, '/',filename_prefix, file_name, filename_extension].join('')
   end
 
-  task :user => :environment do
-    fpath = get_sample_file_path("users")
-    csv_hdlr = File.read(fpath)
-    csv = CSV.parse(csv_hdlr, :headers => true)
-    csv.each_with_index do |row, i|
-        toks = row[0].split
-        user_id = toks[0].to_i
-        name = toks[1..-1].join(" ")
+  def get_csv_hdlr_by_file_name(fname)
+    fpath = get_sample_file_path(fname)
+    File.read(fpath)
+  end
+
+  def get_clean_toks(raw_toks)
+    raw_toks.map(&:strip)
+  end
+
+  def parse_content_and_insert_to_db(csv_hdlr, &block)
+    data = []
+    CSV.parse(csv_hdlr, :headers => true).each do |row|
         begin
-          user = User.create(id: user_id, name: name)
+          toks = get_clean_toks(row[0].split)
+          block.call(toks)
         rescue ActiveRecord::RecordNotUnique
-          print("#{user_id} has already existed")
+          print("#{id} has already existed")
         end
-        print(user)
+        print(row)
+    end
+  end  
+
+  task :user => :environment do
+    csv_hdlr = get_csv_hdlr_by_file_name("users")
+    parse_content_and_insert_to_db(csv_hdlr) do |toks|
+        id = toks[0].to_i
+        name = toks[1..-1].join(" ")
+        user = User.create(id: id, name: name)
     end
   end
+
+
+  task :category => :environment do
+    csv_hdlr = get_csv_hdlr_by_file_name("categories")
+    parse_content_and_insert_to_db(csv_hdlr) do |toks|
+        id = toks[0].to_i
+        name = toks[1..-1].join(" ")
+        user = Category.create(id: id, name: name)
+    end
+  end
+
 end
