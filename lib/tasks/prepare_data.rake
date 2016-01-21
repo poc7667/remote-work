@@ -24,29 +24,47 @@ namespace :prepare_data do
           toks = get_clean_toks(row[0].split)
           block.call(toks)
         rescue ActiveRecord::RecordNotUnique
-          print("#{id} has already existed")
+          print("#{row} has already existed")
         end
         print(row)
     end
-  end  
+  end
+
+  def create_category_item_association(item, categories)
+    if categories.count > 0
+      categories.each do |category|
+        item.categories << category
+      end
+    end
+  end
 
   task :user => :environment do
     csv_hdlr = get_csv_hdlr_by_file_name("users")
     parse_content_and_insert_to_db(csv_hdlr) do |toks|
         id = toks[0].to_i
         name = toks[1..-1].join(" ")
-        user = User.create(id: id, name: name)
+        User.create(id: id, name: name)
     end
   end
-
 
   task :category => :environment do
     csv_hdlr = get_csv_hdlr_by_file_name("categories")
     parse_content_and_insert_to_db(csv_hdlr) do |toks|
         id = toks[0].to_i
         name = toks[1..-1].join(" ")
-        user = Category.create(id: id, name: name)
+        Category.create(id: id, name: name)
     end
   end
+
+  task :item_and_associations => :environment do
+    csv_hdlr = get_csv_hdlr_by_file_name("categories_items")
+    parse_content_and_insert_to_db(csv_hdlr) do |toks|
+        id = toks[0].to_i
+        category_id = toks[1].to_i
+        item = Item.create(id: id)
+        categories = Category.where(id:category_id)
+        create_category_item_association(item, categories)
+    end
+  end  
 
 end
