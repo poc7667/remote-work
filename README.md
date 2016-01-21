@@ -62,3 +62,11 @@ The recommender should recommend
     rake prepare_data:category
     rake prepare_data:item_and_associations
     rake prepare_data:associations_user_and_items
+
+
+## Sample usages
+
+    rails c # go to rails console
+    #Recommender.get_recommendations(<USER_ID>, <STRATEGY_NAME>)
+    Recommender.get_recommendations(35688, "category")
+    Recommender.get_recommendations(35688, "user")
