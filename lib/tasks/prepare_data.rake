@@ -65,6 +65,17 @@ namespace :prepare_data do
         categories = Category.where(id:category_id)
         create_category_item_association(item, categories)
     end
-  end  
+  end
+
+  task :associations_user_and_items => :environment do
+    csv_hdlr = get_csv_hdlr_by_file_name("items_users")
+    parse_content_and_insert_to_db(csv_hdlr) do |toks|
+        user_id = toks[0].to_i
+        item_id = toks[1].to_i
+        user = User.find(user_id)
+        item = Item.find(item_id)
+        user.items << item
+    end
+  end
 
 end
