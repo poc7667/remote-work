@@ -13,6 +13,13 @@ development:
   host: <%= ENV['DB_HOST'] %>
   port: <%= ENV['DB_PORT'] %>
 
+test:
+  <<: *default
+  database: sample_retension_science_development
+  # database: sample_retension_science_test
+  host: <%= ENV['DB_HOST'] %>
+  port: <%= ENV['DB_PORT'] %>
+
 production:
   <<: *default
   database: sample_retension_science_production
